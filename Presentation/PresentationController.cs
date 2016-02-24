@@ -128,7 +128,7 @@ namespace Presentation
                         slide.SetSlide(image);
                         _model.addSlide(slide);
                     }
-                    //shuffleTweets();
+                    shuffleTweets();
 
                     //for (int i = 0; i < AantalFotosTussenTweets; i++)
                     //{
@@ -201,46 +201,12 @@ namespace Presentation
 
                 if (slide.SlideType == GlobalVar.SLIDE_TYPE_TWEET) tweetSlides.Add(slide);
             }
-
-            //create empty list for new Slides
-            List<SlideController> slides = new List<SlideController>();
-
-            int slideCount = tweetSlides.Count + imageSlides.Count;
-            int imagesInGroup = getMain().getSettingsController().getModel().ImageGroupSize; // 5 images, dan tweets
-            int imagesInRealGroup = (imagesInGroup > imageSlides.Count ? imageSlides.Count : imagesInGroup);
-            int amountOfImageGroups = (imagesInGroup > 0 ? imageSlides.Count / imagesInGroup : 0);
-            int amountOfTweetsBetweenGroups = (amountOfImageGroups > 0 ? tweetSlides.Count / amountOfImageGroups : 10);
-
-            int imageCounter = 0;
-            int tweetCounter = 0;
-            for (int slideCounter = 0; slideCounter < slideCount; slideCounter++)
+            for (int i = 0; i < (imageSlides.Count*2); i=i+2)
             {
-                if(imageCounter < imagesInRealGroup && imageSlides.Count > 0)
-                {
-                    slides.Add(imageSlides.First());
-                    imageSlides.Remove(imageSlides.First());
-                    imageCounter++;
-                } 
-                else if(tweetCounter < amountOfTweetsBetweenGroups && tweetSlides.Count > 0)
-                {
-                    slides.Add(tweetSlides.First());
-                    tweetSlides.Remove(tweetSlides.First());
-                    tweetCounter++;
-                }
-
-
-                //Console.WriteLine(tweetCounter + "=" + amountOfTweetsBetweenGroups + " & " + imageCounter + "=" + imagesInRealGroup);
-
-                //reset image and tweetcounter if necessary
-                if (tweetCounter == amountOfTweetsBetweenGroups && imageCounter == imagesInRealGroup)
-                {
-                    tweetCounter = 0;
-                    imageCounter = 0;
-                }
+                _model.Slides[i] = imageSlides[i/2];
+                _model.addSlide(_model.Slides[i + 1]);
+                _model.Slides[i + 1] = tweetSlides[0];
             }
-
-            _model.Slides = slides;
-
 
         }
 
@@ -310,7 +276,7 @@ namespace Presentation
                     _model.addSlide(slideToAdd);
 
                 // shuffle tweets between images
-                //shuffleTweets();
+                shuffleTweets();
             }
         }
     }

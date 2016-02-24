@@ -22,7 +22,7 @@ namespace Presentation
 
             _model.TwitterSearch = "ilovesintjob";
             _model.MaxTweets = 10;
-            _model.ImageGroupSize = 5;
+            _model.ImageGroupSize = 2;
             _model.SecondsBetweenSlides = 5;
             _view.UpdateView();
         }
