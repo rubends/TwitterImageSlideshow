@@ -11,6 +11,7 @@ namespace Presentation
         private PresentationController _controller;
         private List<SlideController> _slides = new List<SlideController>();
         private int _currentSlide = 0;
+        private int _picIndex;
         private SlideController _emptySlide;
 
         public SlideController EmptySlide
@@ -57,6 +58,17 @@ namespace Presentation
             {
                 Console.WriteLine("Next slide: " + value);
                 _currentSlide = value;
+            }
+        }
+        public int PicIndex
+        {
+            get
+            {
+                return _picIndex;
+            }
+            set
+            {
+                _picIndex = value;
             }
         }
 

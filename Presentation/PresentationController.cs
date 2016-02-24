@@ -14,6 +14,8 @@ namespace Presentation
         private PresentationView _view;
         private MainController _mainController;
         private PresentationModel _model;
+        //private int AantalFotosTussenTweets = 2;
+        Random rnd = new Random(DateTime.UtcNow.Millisecond);
 
         public PresentationController(MainController mainController)
         {
@@ -91,11 +93,11 @@ namespace Presentation
             }
             _view.UpdateView();
         }
-        public void GetTweetSlide()
-        {
-             _model.CurrentSlide = 7;
-            _view.UpdateView();
-        }
+        //public void GetTweetSlide()
+        //{
+        //     _model.CurrentSlide = 7;
+        //    _view.UpdateView();
+        //}
 
         public void loadSlides()
         {
@@ -118,7 +120,7 @@ namespace Presentation
                     // delete all image slides
                     deleteAllImages();
 
-                    foreach(string imagePath in imagesDir.getImagePaths())
+                    foreach (string imagePath in imagesDir.getImagePaths())
                     {
                         ImageController image = new ImageController(this);
                         image.SetImage(imagePath);
@@ -126,7 +128,34 @@ namespace Presentation
                         slide.SetSlide(image);
                         _model.addSlide(slide);
                     }
-                    shuffleTweets();
+                    //shuffleTweets();
+
+                    //for (int i = 0; i < AantalFotosTussenTweets; i++)
+                    //{
+                    //    var imgs = imagesDir.getImagePaths();
+                    //    //if (_model.PicIndex < imgs.Length)
+                    //    //{
+                    //    //    ImageController image = new ImageController(this);
+                    //    //    image.SetImage(imgs[_model.PicIndex]);
+                    //    //    SlideController slide = new SlideController();
+                    //    //    slide.SetSlide(image);
+                    //    //    _model.addSlide(slide);
+                    //    //    _model.PicIndex++;
+                    //    //}
+                    //    //else
+                    //    //{
+                    //    //    _model.PicIndex = 0;
+                    //    //}
+                    //    var random = rnd.Next(imgs.Length);
+                    //    ImageController image = new ImageController(this);
+                    //    image.SetImage(imgs[random]);
+                    //    SlideController slide = new SlideController();
+                    //    slide.SetSlide(image);
+                    //    _model.addSlide(slide);
+                    //    _model.PicIndex++;
+                    //    Console.WriteLine(_model.PicIndex);
+                    //}
+
                 }
                 else
                 {

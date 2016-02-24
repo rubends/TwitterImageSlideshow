@@ -48,8 +48,6 @@ namespace Presentation
             nextSlide.ResizeContent();
             Controls.Add(nextSlide.GetView());
 
-            Console.WriteLine("Next slide");
-
         }
 
         private void slideTimer_Tick(object sender, EventArgs e)
