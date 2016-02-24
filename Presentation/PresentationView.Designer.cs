@@ -42,7 +42,7 @@
             // tweetTimer
             // 
             this.tweetTimer.Enabled = true;
-            this.tweetTimer.Interval = 30000;
+            this.tweetTimer.Interval = 10000;
             this.tweetTimer.Tick += new System.EventHandler(this.tweetTimer_Tick);
             // 
             // PresentationView

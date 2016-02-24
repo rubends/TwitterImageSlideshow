@@ -49,12 +49,14 @@ namespace Presentation
 
         public void NextSlide()
         {
+            
             if(_model.Slides.Count > 0)
             {
                 if (_model.Slides.Count > _model.CurrentSlide + 1)
                 {
                     // next slide is good
                     _model.CurrentSlide++;
+                    Console.Write("current slide : " + _model.CurrentSlide);
                 }
                 else
                 {
@@ -87,6 +89,11 @@ namespace Presentation
             {
                 _model.CurrentSlide = 0;
             }
+            _view.UpdateView();
+        }
+        public void GetTweetSlide()
+        {
+             _model.CurrentSlide = 7;
             _view.UpdateView();
         }
 
@@ -274,7 +281,7 @@ namespace Presentation
                     _model.addSlide(slideToAdd);
 
                 // shuffle tweets between images
-                shuffleTweets();
+                //shuffleTweets();
             }
         }
     }

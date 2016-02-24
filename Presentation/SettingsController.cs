@@ -21,7 +21,7 @@ namespace Presentation
             _mainController = mainController;
 
             _model.TwitterSearch = "ilovesintjob";
-            _model.MaxTweets = 50;
+            _model.MaxTweets = 10;
             _model.ImageGroupSize = 5;
             _model.SecondsBetweenSlides = 5;
             _view.UpdateView();

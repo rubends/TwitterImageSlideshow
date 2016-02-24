@@ -70,6 +70,7 @@ namespace Presentation
         private void tweetTimer_Tick(object sender, EventArgs e)
         {
             _controller.loadTweets();
+            //_controller.GetTweetSlide();
         }
     }
 }
